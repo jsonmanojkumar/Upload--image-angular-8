@@ -1,0 +1,47 @@
+<style>
+    .mt{
+        margin-top: 71px;
+    }
+    .bdr{
+        border: 10px solid #ffc107;
+    padding: 20px;
+    border-radius: 10px;
+    }
+    .center{
+        text-align: center;
+        color: #ffc107;
+    }
+</style>
+<div class="row mt">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3 class="center  "><b>Register Form</b></h3><br> 
+        <div class="bdr"> 
+            <form  [formGroup]="RegisterForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name </label>
+                    <input type="text" formControlName="name" class="form-control"     placeholder="Enter Name">
+                    
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" formControlName="email" class="form-control"     placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" formControlName="password" class="form-control"   placeholder="Password">
+                </div>
+               
+                <button type="button" (click)="register()" class="btn btn-success"> Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" routerLink="/login" class="btn btn-warning">Login</button>
+              </form>
+          </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+
+
+ 

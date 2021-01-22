@@ -1,0 +1,114 @@
+
+ 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h1><b> <a class="navbar-brand dashboard">Dashboard</a></b></h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a routerLink="/profile" class="nav-link">Profile <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+
+            <button class="btn btn-warning my-2 my-sm-0" (click)="Logout()" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+
+<style>
+    .dashboard {
+        color: red !important;
+    }
+
+    .mt {
+        margin-top: 71px;
+        padding: 20px;
+    }
+
+    .bdr {
+        border: 10px solid red;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .center {
+        text-align: center;
+        color: red;
+    }
+
+    .data {
+        color: blue;
+    }
+</style>
+<div class="row mt">
+    <div class="col-md-4">
+        <h3 class="center  "><b>Student Form</b></h3><br>
+        <div class="bdr">
+            <form [formGroup]="StudentFrom">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name </label>
+                    <input formControlName="name" type="text" class="form-control" placeholder="Enter Name" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Mobile </label>
+                    <input type="text" formControlName="mobile" class="form-control" placeholder="Enter mobile">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="text" formControlName="password" class="form-control" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Age </label>
+                    <input type="text" formControlName="age" class="form-control" placeholder="Enter age">
+                </div>
+         
+                <button type="button" *ngIf="submitBtn" (click)="CreateStudent()" class="btn btn-danger">Submit</button>
+                <button type="button" *ngIf="updateBtn" (click)="updateStudent()"
+                    class="btn btn-success">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8  ">
+        <h3 class="center"><b>Student List</b></h3><br>
+        <div class="bdr">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="center">
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of students index as i" class="data">
+                        <td>{{data.Id}}</td>
+                        <td>{{data.Name}}</td>
+                        <td>{{data.Email}}</td>
+                        <td>{{data.Mobile}}</td>
+                        <td>{{data.Password}}</td>
+                        <td>{{data.Age}}</td>
+                        <td class="center">
+                            <button type="button" (click)="update(data)" class="btn btn-info">Edit</button>&nbsp;
+                            <button type="button" (click)="DeleteStudent(data.Id)"
+                                class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
